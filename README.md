@@ -13,11 +13,24 @@ The phenomenological relaxation is:
 $$\delta P_A(t)=P_A(t)-\langle P_A \rangle$$
 
 A Heaviside function gives the microscopic population operator:
-\[
-f(x) = 
-\begin{cases}
-    x^2 & \text{if } x > 0 \\
-    0 & \text{if } x = 0 \\
-    -x^2 & \text{if } x < 0
-\end{cases}
-\]
+
+$$ H_B\lbrack Q(t)\rbrack= \Huge\lbrace \normalsize \matrix{ 1, & Q(t) \geq Q* \cr 0, & Q(t) < Q* }  $$
+
+$Q*$ donates the coarse-graining state boundary, and hence microscopic fluctuations in the population are 
+
+$$ \delta H_B(t)= H_B\lbrack Q(t) \rbrack -\langle H_B \rangle $$
+
+Then microscopic fluctuation correlation is
+
+$$ C_{HH}(t)=\langle \delta H_B(0) \delta H_B(t)\rangle$$
+
+## Usage
+Based on C++, need to install fftw3 to do Fourier transform.
+```
+mkdir build & cd build
+cmake ..
+make -j4
+cd src
+./flux_correlation --filepath $your trajectory$ --timestep $your simulation timestep$
+```
+will generate a "corhh.txt" in the directory /build/src/.
