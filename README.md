@@ -24,6 +24,12 @@ Then microscopic fluctuation correlation is
 
 $$ C_{HH}(t)=\langle \delta H_B(0) \delta H_B(t)\rangle$$
 
+## Example
+![alt text](https://github.com/Sanhei/Flux_population_correlation/blob/main/m_0.001_gamma_0.001.svg?raw=true)
+
+
+
+
 ## Usage
 Based on C++, need to install fftw3 to do Fourier transform.
 ```
@@ -34,3 +40,8 @@ cd src
 ./flux_correlation --filepath $your trajectory$ --timestep $your simulation timestep$
 ```
 will generate a "corhh.txt" in the directory /build/src/.
+
+## Correction term
+For fourier transform, the unify could always use 
+
+$$ C_{HH}'(t)=\frac{C_{HH}(t)}{C_{HH}(0)} $$
